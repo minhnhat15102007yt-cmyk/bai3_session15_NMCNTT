@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>bài 3 session15</title>
+  <link rel="stylesheet" href="https://stackedit.io/style.css" />
+</head>
+
+<body class="stackedit">
+  <div class="stackedit__html"><h3 id="phần-1-luồng-dữ-liệu-từ-ctrls-đến-tích-xanh">Phần 1: Luồng dữ liệu (Từ <code>Ctrl+S</code> đến tích xanh)</h3>
+<ol>
+<li>
+<p><strong>Ghi Local:</strong> Nhấn <code>Ctrl+S</code>  <span class="katex--inline"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mo>→</mo></mrow><annotation encoding="application/x-tex">\rightarrow</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height: 0.36687em; vertical-align: 0em;"></span><span class="mrel">→</span></span></span></span></span> Lưu thẳng vào SSD (siêu nhanh, không cần mạng).</p>
+</li>
+<li>
+<p><strong>Quét thay đổi:</strong> Ứng dụng Cloud phát hiện file thay đổi.</p>
+</li>
+<li>
+<p><strong>Lọc dữ liệu (Bẫy <code>node_modules</code>):</strong> Hệ thống bỏ qua ngay các file rác trong <code>node_modules</code> (không đồng bộ chúng để tránh treo máy).</p>
+</li>
+<li>
+<p><strong>Đẩy lên mây:</strong> Gửi các file code sạch (<code>.js</code>,  <code>.json</code>) lên server Cloud.</p>
+</li>
+<li>
+<p><strong>Hoàn tất:</strong> Nhận phản hồi thành công và hiện <strong>tích xanh</strong>.</p>
+</li>
+</ol>
+<h3 id="phần-2-cấu-trúc-thư-mục-cloud-chuẩn">Phần 2: Cấu trúc thư mục Cloud chuẩn</h3>
+<p>Plaintext</p>
+<pre><code>📁 MyStartupProject/
+├── 📁 Code/          &lt;-- Chỉ chứa mã nguồn &amp; package.json (Đồng bộ, KHÔNG CÓ node_modules)
+├── 📁 Docs/          &lt;-- Tài liệu dự án (Dùng Files On-Demand: chỉ tải về khi cần)
+└── 📁 Assets/        &lt;-- Hình ảnh/video nặng (Dùng Files On-Demand: để sẵn trên mây)
+
+</code></pre>
+<p><strong>Cách xử lý bẫy <code>node_modules</code>:</strong></p>
+<ul>
+<li>
+<p>Tuyệt đối không đưa <code>node_modules</code> lên Cloud.</p>
+</li>
+<li>
+<p>Khi sang máy mới, chỉ cần tải thư mục <code>Code</code> về rồi chạy lệnh <code>npm install</code> để máy tự sinh lại <code>node_modules</code> sạch sẽ.</p>
+</li>
+</ul>
+</div>
+</body>
+
+</html>
